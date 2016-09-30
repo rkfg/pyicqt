@@ -24,10 +24,11 @@ def sendMessage(pytrans, to, fro, body=None, mtype=None, delay=None, xhtml=None,
 		el.attributes["type"] = mtype
 
 	if delay:
-		x = el.addElement("x")
+		x = el.addElement("delay")
 		x.attributes["xmlns"] = globals.XDELAY
 		x.attributes["from"] = fro
 		x.attributes["stamp"] = delay
+		x.addContent(globals.DELAYREASON)
 
 	if nickname:
 		n = el.addElement("nick")
